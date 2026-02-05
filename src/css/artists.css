@@ -1,5 +1,6 @@
 .div-section-wrapper {
   padding: 64px 0;
+  background-color: #060307;
 }
 .artists-title {
   font-weight: 600;
@@ -23,6 +24,10 @@
 .artists-section {
   display: flex;
   flex-direction: column;
+}
+
+.artists-cards-wrapper {
+  width: 100%;
 }
 
 .artists-card-item {
@@ -74,20 +79,6 @@
   color: #fff;
   margin-bottom: 24px;
 }
-.artists-learn-more-card-btn {
-  display: flex;
-  border: none;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5px 0;
-
-  background-color: #060307;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.5;
-  color: #fff;
-  gap: 8px;
-}
 .artists-list {
   display: flex;
   flex-wrap: wrap;
@@ -137,9 +128,13 @@
   align-items: center;
   justify-content: center;
   padding: 1.5px 0;
+  background-color: #060307;
   transition: all 0.3s ease-in-out;
   color: #fff;
   fill: #fff;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
   gap: 8px;
 }
 
@@ -217,20 +212,6 @@
     line-height: 1.5;
     color: #fff;
     margin-bottom: 24px;
-  }
-  .artists-learn-more-card-btn {
-    display: flex;
-    border: none;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5px 0;
-
-    background-color: #060307;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.5;
-    color: #fff;
-    gap: 8px;
   }
   .artists-list {
     display: flex;
@@ -321,8 +302,8 @@
   border-radius: 50%;
   display: inline-block;
   position: absolute;
-  top: 10%;
-  left: 38%;
+  bottom: 100%;
+  left: 50%;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
   animation: rotation 2s linear infinite;

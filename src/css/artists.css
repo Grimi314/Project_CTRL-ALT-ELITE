@@ -112,6 +112,10 @@
   position: relative;
 }
 
+.scroll-down-icon {
+  fill: #ffffff;
+}
+
 .artists-load-more-btn-wrapper {
   display: flex;
   align-items: center;

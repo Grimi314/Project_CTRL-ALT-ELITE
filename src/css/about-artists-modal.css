@@ -16,13 +16,14 @@
 
 .modal {
      color: #fff;
-    padding: 52px 24px;
-    width: 320px;
+    padding: 52px 8px;
+    width: 288px;
     height: 100vh;
     background-color: #060307;
     position: relative;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
 }
 
 
@@ -31,7 +32,12 @@
     border: none;
     position: absolute;
     top: 16px;
-    right: 32px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
    
 }
 
@@ -64,6 +70,8 @@
     margin-bottom: 16px;
 }
 
+
+
 .section-modal-wrapper-text-description{
     display: flex;
     flex-direction: column;
@@ -86,7 +94,7 @@
     
 }
 
-.section-modal-text-container-text {}
+
 
 .section-modal-wrapper-genres{
 display: flex;
@@ -107,6 +115,7 @@ border: 1px solid rgba(255, 255, 255, 0.2);
 border-radius: 6px;
 padding-block: 4px;
 padding-inline: 10px;
+font-weight: 600;
 }
 
 
@@ -180,9 +189,7 @@ padding-inline: 10px;
     line-height: 1.5;
 }
 
-.ambum {}
 
-.time {}
 
 .container-list-item-span-link {
     width: 24px;
@@ -193,13 +200,11 @@ padding-inline: 10px;
 @media  screen and (min-width: 768px) {
 .modal {
     color: #fff;
-    padding: 64px 57px;
-    width: 768px;
+    padding: 64px 24px;
+    width: 702px;
     }
 
-    .modal-close {
-     right: 84px;
-    }
+   
 
     .section-modal-title {
     font-size: 32px;
@@ -246,8 +251,8 @@ padding-inline: 10px;
 
 @media only screen and (min-width: 1200px) {
     .modal {
-     width: 1440px;
-    padding: 64px 128px;
+     width: 1312px;
+    padding: 64px 64px;
     }
 
     .section-modal-title{
@@ -268,7 +273,7 @@ padding-inline: 10px;
 
     .wrapper-desctope-view-description{
         width: 576px;
-        
+        height: 135px;
     }
 
     .section-modal-albume-container {

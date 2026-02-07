@@ -1,6 +1,6 @@
 .about-section {
     color: #ffffff;
-    padding: 64px 20px;
+    padding: 64px 16px;
     text-align: center;
 }
 
@@ -17,14 +17,13 @@
     max-width: 340px;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
-.about-team-photo {
+/* .about-team-photo {
     width: 100%;
     height: auto;
     display: block;
-}
+} */
 
 .about-div-logo {
     display: flex;
@@ -39,9 +38,9 @@
 .about-section-title {
     font-weight: 700;
     font-size: 44px;
-    margin: 0;
     letter-spacing: -0.02em;
     line-height: 1.15;
+    font-family: "Epilogue", sans-serif;
 }
 
 
@@ -49,16 +48,12 @@
     font-weight: 400;
     font-size: 18px;
     max-width: 620px;
-    margin: 0;
 }
 
-.about-logo-wrapper {
-    margin-top: 1.5rem;
-}
 
 .icon-logo-icon {
-    width: 80px;
-    height: 80px;
+    width: 64px;
+    height: 64px;
 }
 
 .icon-logo-icon {
@@ -110,7 +105,7 @@
     .about-container {
         flex-direction: row;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         gap: 32px;
     }
 
@@ -135,9 +130,9 @@
         max-width: none;
     }
 
-    .icon-logo-icon {
+    /* .icon-logo-icon {
         width: 90px;
         height: 90px;
-    }
+    } */
 }
 

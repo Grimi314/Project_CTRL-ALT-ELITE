@@ -6,7 +6,7 @@ export function renderFeedbacks(feedbacks = []) {
 
     return `
         <div class="swiper-slide">
-        <span>${rating}</span>
+        <span>${Math.round(rating)}</span>
         <h3>${descr}</h3>
         <span>${name}</span>
         </div>

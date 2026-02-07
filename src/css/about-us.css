@@ -1,6 +1,6 @@
 .about-section {
     color: #ffffff;
-    padding: 64px 16px;
+    padding: 64px 0px;
     text-align: center;
 }
 
@@ -13,17 +13,12 @@
 }
 
 .about-team-photo {
-    width: 100%;
-    max-width: 340px;
+    width: 280px;
+    height: 168px;
     border-radius: 16px;
     overflow: hidden;
 }
 
-/* .about-team-photo {
-    width: 100%;
-    height: auto;
-    display: block;
-} */
 
 .about-div-logo {
     display: flex;
@@ -31,7 +26,7 @@
     justify-content: flex-start;
     flex-direction: column;
     text-align: left;
-    max-width: 280px;
+    max-width: 288px;
     gap: 20px;
 }
 
@@ -47,7 +42,7 @@
 .about-mission-text {
     font-weight: 400;
     font-size: 18px;
-    max-width: 620px;
+    max-width: 288px;
 }
 
 
@@ -63,7 +58,7 @@
 /*================Tablet====================*/
 @media (min-width: 768px) {
     .about-section {
-        padding: 64px 32px;
+        padding: 64px 0px;
     }
 
     .about-container {
@@ -76,7 +71,8 @@
     }
 
     .about-team-photo {
-        max-width: 420px;
+        width: 704px;
+        height: 413px;
     }
 
     .about-section-title {
@@ -88,6 +84,7 @@
         font-weight: 400;
         font-size: 20px;
         text-align: left;
+        max-width: 704px;
     }
 
     .icon-logo-icon {
@@ -99,7 +96,7 @@
 /*================Desktop====================*/
 @media (min-width: 1440px) {
     .about-section {
-        padding: 112px 64px;
+        padding: 112px 0px;
     }
 
     .about-container {
@@ -110,7 +107,8 @@
     }
 
     .about-team-photo {
-        max-width: 480px;
+        width: 640px;
+        height: 655px;
         flex-shrink: 0;
     }
 
@@ -129,10 +127,5 @@
         font-size: 20px;
         max-width: none;
     }
-
-    /* .icon-logo-icon {
-        width: 90px;
-        height: 90px;
-    } */
 }
 

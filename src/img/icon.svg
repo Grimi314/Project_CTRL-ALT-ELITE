@@ -29,8 +29,7 @@
 <path fill="#fff" style="fill: var(--color1, #fff)" d="M39.446 13.69c0.377-0.044 0.721 0.219 0.776 0.594s-0.198 0.726-0.571 0.793c-0.252 0.045-0.508-0.051-0.668-0.250s-0.2-0.469-0.104-0.706c0.096-0.237 0.314-0.402 0.567-0.432z"></path>
 </symbol>
 <symbol id="icon-burger" viewBox="0 0 43 32">
-<title>burger</title>
-<path fill="#fff" style="fill: var(--color1, #fff)" d="M0 0h42.667v5.333h-42.667v-5.333zM10.667 13.333h32v5.333h-32v-5.333zM24 26.667h18.667v5.333h-18.667v-5.333z"></path>
+<path d="M0 0h42.667v5.333h-42.667v-5.333zM10.667 13.333h32v5.333h-32v-5.333zM24 26.667h18.667v5.333h-18.667v-5.333z"></path>
 </symbol>
 <symbol id="icon-close" viewBox="0 0 32 32">
 <title>close</title>

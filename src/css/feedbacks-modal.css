@@ -1,4 +1,4 @@
-.feedbacks {
+.feedbacks-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,7 +8,7 @@
     z-index: 10;
 }
 
-.feedbacks.is-hidden {
+.feedbacks-modal.is-hidden {
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
@@ -32,7 +32,7 @@ body.modal-open {
     overflow: hidden;
 }
 
-.feedbacks-text {
+.feedbacks-modal-text {
     font-family: "Epilogue", sans-serif;
     font-weight: 700;
     font-size: 24px;
@@ -42,7 +42,7 @@ body.modal-open {
     color: #fff;
 }
 
-.feedbacks-btn {
+.feedbacks-modal-btn {
     background: none;
     border: none;
     color: #fff;
@@ -53,9 +53,11 @@ body.modal-open {
     top: 16px;
     right: 16px;
     font-size: 15px;
+    width: 32px;
+    height: 32px;
 }
 
-.feedback-label {
+.feedback-modal-label {
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 400;
     font-size: 18px;
@@ -63,31 +65,41 @@ body.modal-open {
     color: #fff;
 }
 
-.feedback-input {
+.feedback-modal-label-input {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+}
+
+.feedback-modal-input {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 8px 12px;
     width: 288px;
     height: 43px;
-    margin-top: 8px;
-    margin-bottom: 32px;
+    /* margin-top: 8px; */
     background: rgba(255, 255, 255, 0);
     color: #fff;
     font-family: "IBM Plex Sans", sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.5;
+    margin-bottom: 32px;
 }
 
-.feedback-input:hover {
+.feedback-modal-input:hover {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.feedback-input:hover::placeholder {
-    color: #fff;
+.feedback-modal-input:hover::placeholder {
+   color: rgba(255, 255, 255, 0.6);
 }
 
-.feedback-textarea {
+.feedback-modal-textarea {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 12px;
@@ -97,16 +109,16 @@ body.modal-open {
     background: rgba(255, 255, 255, 0);
     resize: none;
     color: #fff;
+    margin-bottom: 32px;
 }
 
-.feedback-textarea:hover::placeholder {
-    color: #fff;
+.feedback-modal-textarea:hover::placeholder {
+    color: rgba(255, 255, 255, 0.6);
     
 }
 
-.feedback-submit {
+.feedback-modal-submit {
     border-radius: 12px;
-    padding: 10px 24px;
     min-width: 288px;
     height: 47px;
     box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
@@ -122,28 +134,28 @@ body.modal-open {
     margin: 0 auto;
 }
 
-.feedback-submit:hover {
+.feedback-modal-submit:hover {
     opacity: 0.6;
+    transition: all 0.3s ease-in-out;
 }
 
-.feedback-submit:active {
+.feedback-modal-submit:active {
     box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05);
 }
 
 
-.feedback-stars {
+.feedback-modal-stars {
     display: flex;
     flex-direction: row-reverse; 
     justify-content: flex-end;
-    margin-top: 32px;
     margin-bottom: 32px;
 }
 
-.feedback-stars input {
+.feedback-modal-stars input {
     display: none; 
 }
 
-.feedback-stars label {
+.feedback-modal-stars label {
     font-size: 32px;
     color: #ffffff; 
     cursor: pointer;
@@ -152,15 +164,15 @@ body.modal-open {
 
 
 
-.feedback-stars label:hover .icon-star,
-.feedback-stars label:hover ~ label .icon-star,
-.feedback-stars input:checked + label .icon-star,
-.feedback-stars input:checked + label ~ label .icon-star {
+.feedback-modal-stars label:hover .icon-modal-star,
+.feedback-modal-stars label:hover ~ label .icon-modal-star,
+.feedback-modal-stars input:checked + label .icon-modal-star,
+.feedback-modal-stars input:checked + label ~ label .icon-modal-star {
     fill: #764191;
 }
 
 
-.feedback-stars label {
+.feedback-modal-stars label {
     margin-right: 5px;
 }
 
@@ -168,7 +180,7 @@ body.modal-open {
     fill: #fff;
 }
 
-.icon-star {
+.icon-modal-star {
     fill: #fff;  
 }
 
@@ -183,33 +195,33 @@ body.modal-open {
     padding: 64px 32px;
 }
 
-.feedbacks-text {
+.feedbacks-modal-text {
     line-height: 1.2;
     font-size: 44px;
 }
 
-.feedback-input {
+.feedback-modal-input {
     width: 640px;
 }
 
-.feedback-textarea {
+.feedback-modal-textarea {
     width: 640px;
     height: 180px;
+    margin-bottom: 24px;
 }
 
-.feedback-submit {
+.feedback-modal-submit {
     min-width: 340px;
 }
 
-.feedback-stars {
-    margin-top: 24px;
+.feedback-modal-stars {
     margin-bottom: 24px;
 }
 
 }
 
 @media screen and (min-width: 1440px) {
-.feedbacks {
+.feedbacks-modal {
     opacity: 1;
     visibility: visible;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), 
@@ -221,22 +233,22 @@ body.modal-open {
     padding: 64px;
 }
 
-.feedbacks-text {
+.feedbacks-modal-text {
     font-size: 60px;
     margin-bottom: 48px;
 }
 
-.feedback-input {
+.feedback-modal-input {
     width: 736px;
     margin-bottom: 24px;
 }
 
-.feedback-textarea{
+.feedback-modal-textarea{
     width: 736px;
     height: 180px;
 }
 
-.feedback-submit {
+.feedback-modal-submit {
     min-width: 108px;
 }
 

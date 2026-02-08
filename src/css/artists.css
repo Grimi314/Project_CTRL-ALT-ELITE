@@ -94,6 +94,7 @@
 
 .caret-right-icon {
   fill: #fff;
+  transition: all 0.1s ease-in-out;
 }
 
 .artists-load-more-btn {
@@ -152,9 +153,14 @@
 }
 
 .artists-learn-more-card-btn:hover {
-  color: #764191;
-  fill: #764191;
+    color: #764191;
 }
+.artists-learn-more-card-btn:hover .caret-right-icon {
+
+    fill: #764191;
+}
+
+
 
 @media screen and (min-width: 768px) {
   .artists-title {
@@ -230,6 +236,7 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
+    
 
     box-shadow:
       0 1px 2px 0 rgba(6, 3, 7, 0.05),
@@ -245,6 +252,9 @@
     color: #ffffff;
     position: relative;
   }
+  .artists-load-more-btn:hover{
+    opacity: 0.6;
+}
   .artists-load-more-btn-wrapper {
     display: flex;
     align-items: center;

@@ -1,3 +1,4 @@
+
 .div-section-wrapper {
   padding: 64px 0;
   background-color: #060307;
@@ -28,7 +29,6 @@
 
 .artists-cards-wrapper {
   width: 100%;
-  padding-left: 40px;
 }
 
 .artists-card-item {
@@ -82,6 +82,7 @@
   color: #fff;
   margin-bottom: 24px;
   overflow: hidden;
+  max-height: 54px;
 }
 .artists-list {
   display: flex;
@@ -104,8 +105,10 @@
   gap: 12px;
   margin: 0 auto;
 
-  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
-    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+  box-shadow:
+    0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(6, 3, 7, 0.15),
     inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
   background-color: #764191;
@@ -192,7 +195,8 @@
     justify-content: center;
   }
 
-  .artists-genres-list {
+
+.artists-genres-list {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
@@ -227,8 +231,10 @@
     justify-content: center;
     gap: 12px;
 
-    box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
-      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    box-shadow:
+      0 1px 2px 0 rgba(6, 3, 7, 0.05),
+      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px rgba(6, 3, 7, 0.15),
       inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
       inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
     background-color: #764191;
@@ -331,9 +337,6 @@
   }
 }
 
-/* .div-section-wrapper {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+.artists-visually-hidden {
+  display: none;
+}

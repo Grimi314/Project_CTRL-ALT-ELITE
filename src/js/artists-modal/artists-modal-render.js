@@ -4,7 +4,7 @@ async function getHumanId() {
   const response = await axios.get(
     'https://sound-wave.b.goit.study/api/artists?limit=10&page=1'
   );
-  return response.data.artists[3]._id;
+  return response.data.artists[1]._id;
 }
 
 async function getInformation(id) {
@@ -18,7 +18,6 @@ async function init() {
   try {
     const id = await getHumanId();
     const info = await getInformation(id);
-    console.log(info);
 
     return info;
   } catch (error) {
@@ -42,7 +41,12 @@ export async function markup() {
   } = infoAboutArtist;
 
   //   if (!intDiedYear) intDiedYear = 'present';
-  console.log(intMembers);
+
+  const artistGenres = genres
+    .map(el => {
+      return `<div data-genres class="section-modal-genres">${el}</div>`;
+    })
+    .join('');
 
   return `
     <h2 class="section-modal-title">${strArtist}</h2>
@@ -87,6 +91,7 @@ export async function markup() {
               </p>
             </div>
           </div>
+          <div class="section-modal-wrapper-genres">${artistGenres}<div/>
         </div>
       </div>
 `;

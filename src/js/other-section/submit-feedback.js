@@ -2,116 +2,106 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 const refs = {
-  openModalBtn: document.querySelector("[data-modal-open]"), 
-  closeModalBtn: document.querySelector(".feedbacks-modal-btn"),
-  modal: document.querySelector(".feedbacks-modal"),
-  form: document.querySelector(".feedbacks-modal-form"),
-  submitBtn: document.querySelector(".feedback-modal-submit"),
+  closeModalBtn: document.querySelector('.feedbacks-modal-btn'),
+  modal: document.querySelector('.feedbacks-modal'),
+  form: document.querySelector('.feedbacks-modal-form'),
+  submitBtn: document.querySelector('.feedback-modal-submit'),
   body: document.body,
 };
 
+const setSubmitState = isValid => {
+  refs.submitBtn.disabled = !isValid;
+
+  refs.submitBtn.style.opacity = isValid ? '1' : '0.5';
+  refs.submitBtn.style.cursor = isValid ? 'pointer' : 'not-allowed';
+};
 
 const validateForm = () => {
-  if (!refs.form) return;
+  if (!refs.form && !refs.submitBtn) return;
 
-  const isFormValid = refs.form.checkValidity();
-  
+  const name = refs.form.querySelector('input[name="name"]');
+  const message = refs.form.querySelector('textarea[name="message"]');
+  const rating = refs.form.querySelector('input[name="rating"]:checked');
 
-  const isRatingSelected = refs.form.querySelector('input[name="rating"]:checked') !== null;
-  
-  const isValid = isFormValid && isRatingSelected;
+  const isNameValid = name && name.value.trim() !== '';
+  const isMessageValid = message && message.value.trim() !== '';
+  const isRatingSelected = rating !== null;
 
-  refs.submitBtn.disabled = !isValid;
-  
-  if (!isValid) {
-    refs.submitBtn.style.opacity = "0.5";
-    refs.submitBtn.style.cursor = "not-allowed";
-  } else {
-    refs.submitBtn.style.opacity = "1";
-    refs.submitBtn.style.cursor = "pointer";
-  }
+  const isValid = isNameValid && isMessageValid && isRatingSelected;
+
+  setSubmitState(isValid);
+};
+
+const onEscKeyPress = e => {
+  if (e.key === 'Escape') closeModal();
 };
 
 const openModal = () => {
-  refs.modal.classList.remove("is-hidden");
-  refs.body.style.overflow = "hidden"; 
+  refs.modal.classList.remove('is-hidden');
+  refs.body.style.overflow = 'hidden';
 
-  document.addEventListener("keydown", onEscKeyPress);
-  validateForm(); 
+  window.addEventListener('keydown', onEscKeyPress);
+  validateForm();
 };
 
 const closeModal = () => {
-  refs.modal.classList.add("is-hidden");
-  refs.body.style.overflow = ""; 
-  document.removeEventListener("keydown", onEscKeyPress);
-  
+  refs.modal.classList.add('is-hidden');
+  refs.body.style.overflow = '';
+  window.removeEventListener('keydown', onEscKeyPress);
+
   refs.form.reset();
   validateForm();
 };
 
-const onEscKeyPress = (e) => {
-  if (e.key === "Escape") {
-    closeModal();
-  }
-};
+refs.form.addEventListener('input', validateForm);
+refs.form.addEventListener('change', validateForm);
 
+refs.closeModalBtn.addEventListener('click', closeModal);
 
-refs.form.addEventListener("input", validateForm);
-refs.form.addEventListener("change", validateForm);
-
-refs.closeModalBtn.addEventListener("click", closeModal);
-
-refs.modal.addEventListener("click", (e) => {
+refs.modal.addEventListener('click', e => {
   if (e.target === refs.modal) closeModal();
 });
 
-if (refs.openModalBtn) {
-  refs.openModalBtn.addEventListener("click", openModal);
-}
+validateForm();
 
-
-refs.form.addEventListener("submit", async (e) => {
+refs.form.addEventListener('submit', async e => {
   e.preventDefault();
 
   const formData = new FormData(e.currentTarget);
 
   const data = {
-    name: formData.get("name").trim(),
-    rating: Number(formData.get("rating")), 
-    descr: formData.get("message").trim()   
+    name: formData.get('name').trim(),
+    rating: Number(formData.get('rating')),
+    descr: formData.get('message').trim(),
   };
 
   try {
-    const response = await fetch("https://sound-wave.b.goit.study/api/feedbacks", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      'https://sound-wave.b.goit.study/api/feedbacks',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (!response.ok) {
       const errorResult = await response.json();
-      throw new Error(errorResult.message || "Something went wrong.");
+      throw new Error(errorResult.message || 'Something went wrong.');
     }
 
-    if (typeof iziToast !== "undefined") {
-      iziToast.success({
-        title: 'Success',
-        message: 'Thank you for your feedback!',
-        position: 'topRight'
-      });
-    }
+    iziToast.success({
+      title: 'Success',
+      message: 'Thank you for your feedback!',
+      position: 'topRight',
+    });
 
     closeModal();
-
   } catch (error) {
-    if (typeof iziToast !== "undefined") {
-      iziToast.error({
-        title: 'Error',
-        message: error.message,
-        position: 'topRight'
-      });
-    } else {
-      alert("Error: " + error.message);
-    }
+    iziToast.error({
+      title: 'Error',
+      message: error.message,
+      position: 'topRight',
+    });
   }
 });

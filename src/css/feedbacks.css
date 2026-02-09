@@ -1,3 +1,6 @@
+@import url(../../node_modules/css-star-rating/css/star-rating.css);
+
+
 .feedbacks-title {
   position: absolute;
   width: 1px;
@@ -63,11 +66,12 @@
 }
 
 .swiper-pagination {
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 
 .swiper-pagination-bullet {
   background-color: #fff;
+
 }
 
 .button-section-feedbacks {
@@ -98,6 +102,30 @@
 .button-section-feedbacks:hover {
   opacity: 0.6;
 }
+
+.feedback-name{
+
+  margin-bottom: 16px;
+}
+
+.star.default svg, .star-container .star svg{
+  fill: #764191 !important;
+  width: 20px;
+  height: 19px;
+}
+
+.star-container{
+  gap: 6px;
+}
+.star.large,
+.rating.large .star.label-value,
+.rating.large .rating.star .star.label-value,
+.rating.large .rating.label-value .star,
+.rating.large .star{
+  width: 20px;
+  height: 19px;
+}
+
 
 @media (min-width: 768px) {
   .feedbacks-text {
@@ -133,13 +161,13 @@
   .next {
     position: absolute;
     top: 99px;
-    left: 0;
+    right: 0;
   }
 
   .prev {
     position: absolute;
     top: 99px;
-    right: 0;
+    left: 0;
   }
 
   .button-section-feedbacks {

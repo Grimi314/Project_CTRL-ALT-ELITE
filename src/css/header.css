@@ -26,6 +26,10 @@ a {
     height: 51px;
 
 }
+.header-icon-logo:hover, .header-icon-logo:focus  {
+    cursor: pointer;
+}
+
 
 .header-nav-list {
     display: none;
@@ -67,6 +71,9 @@ body.mobile-menu-open .header-container {
     pointer-events: none;
 }
 
+.icon {
+    fill: #fff;
+}
 /* Mobile menu styles */
 .mobile-menu {
     position: fixed;

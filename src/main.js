@@ -1,4 +1,3 @@
-import './js/hero/hero.js';
 import './js/artists/artists-index.js';
 import './js/artists-modal/artists-modal-index.js';
 import './js/feedbacks/feedbacks-index.js';

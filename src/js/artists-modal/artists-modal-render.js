@@ -1,62 +1,67 @@
-import axios from 'axios';
+import { getAlbums } from './artists-modal-api';
 
-async function getHumanId() {
-  const response = await axios.get(
-    'https://sound-wave.b.goit.study/api/artists?limit=10&page=1'
-  );
-  return response.data.artists[1]._id;
-}
-
-async function getAlbums(id) {
-  const response = await axios.get(
-    `https://sound-wave.b.goit.study/api/artists/${id}/albums`
-  );
-  console.log(response.data);
-
-  return response.data;
-}
-
-async function init() {
-  try {
-    const id = await getHumanId();
-    const info = await getAlbums(id);
-
-    return info;
-  } catch (error) {
-    console.error(error.message);
-  }
-}
-
-export async function markup() {
-  const aboutArtist = await init();
+export async function markup(artistId) {
   const {
-    _id,
-    genres,
-    albumsList,
-    strArtist,
-    strArtistThumb,
-    strBiographyEN,
-    strGender,
-    strCountry,
-    intMembers,
-    intFormedYear,
-    intDiedYear,
-  } = aboutArtist;
+    genres = [],
+    albumsList = [],
+    strArtist = 'Unknown artist',
+    strArtistThumb = '',
+    strBiographyEN = '',
+    strGender = '-',
+    strCountry = '-',
+    intMembers = '-',
+    intFormedYear = '-',
+    intDiedYear = null,
+  } = await getAlbums(artistId);
 
   const valueDiedYear = intDiedYear ?? 'present';
-  console.log(albumsList[0].tracks[0].strArtist);
 
-  const artistGenres = genres
+  function formatTime(ms) {
+    if (!ms || ms === 0 || ms === '0') return '—';
+    const time = parseInt(ms);
+
+    const minutes = Math.floor(time / 60000)
+      .toString()
+      .padStart(2, '0');
+    const seconds = Math.floor((time % 60000) / 1000)
+      .toString()
+      .padStart(2, '0');
+
+    return `${minutes}:${seconds}`;
+  }
+
+  const genresMarkup = genres
     .map(el => {
       return `<div data-genres class="section-modal-genres">${el}</div>`;
     })
     .join('');
 
-  const artistAlbumList = albumsList
-    .map(el => {
+  const tracksMarkup = tracks =>
+    (tracks ?? [])
+      .map(track => {
+        const link = track.movie
+          ? `
+          <a data-item-icon-linc href="${track.movie}" class="container-list-item-span-link" target="_blank" rel="noopener noreferrer">
+            <svg class="close-svg" width="24" height="24">
+                <use href="/img/icon.svg#icon-Youtube"></use>
+            </svg>
+          </a>`
+          : '';
+
+        return `
+          <li class="section-modal-albume-container-list-item">
+          <span data-item-nane class="container-list-item-span">${track.strTrack ?? '—'}</span>
+          <span data-item-time class="container-list-item-span">${formatTime(track.intDuration)}</span>${link}
+          </li>
+    `;
+      })
+      .join('');
+
+  const albumsMarkup = albumsList
+    .map(album => {
       return `
         <div data-albume-container class="section-modal-albume-container">
-          <h3 data-albume-title class="section-modal-albume-container-title">${el.strAlbum}</h3>
+          <h3 data-albume-title class="section-modal-albume-container-title">${album.strAlbum ?? '-'}</h3>
 
           <ul class="section-modal-albume-container-list">
             <li class="section-modal-albume-container-list-item-selrct">
@@ -64,72 +69,30 @@ export async function markup() {
               <span class="container-list-item-selrct-span">Time</span>
               <span class="container-list-item-selrct-span">Link</span>
             </li>
-
-            ${el.tracks
-              .map(track => {
-                return `
-        <li class="section-modal-albume-container-list-item">
-          <span data-item-nane class="container-list-item-span">${track.strTrack}</span>
-          <span data-item-time class="container-list-item-span">${track.intDuration}</span>
-          <a data-item-icon-linc href="${track.movie}" class="container-list-item-span-link" target="_blank">
-            <svg class="close-svg" width="24" height="24">
-                <use href="/img/icon.svg#icon-Youtube"></use>
-            </svg>
-          </a>
-        </li>
-      `;
-              })
-              .join('')}
-          <ul/>
+            ${tracksMarkup(album.tracks)}
+          </ul>
     </div>
     `;
     })
     .join('');
 
-  return `
-<h2 class="section-modal-title">${strArtist}</h2>
-<div class="wrapper-desctope-view">
-  <img
-    data-section-modal-img
-    src="${strArtistThumb}"
-    alt="${strArtist}"
-    class="section-modal-img"
-  />
-  <div class="wrapper-desctope-view-description">
-    <div class="section-modal-wrapper-text">
-      <div class="section-modal-wrapper-text-description">
-        <div class="section-modal-text-container">
-          <h3 class="section-modal-text-container-title">Years active</h3>
-          <p data-years class="section-modal-text-container-text">
-            ${intFormedYear}-${valueDiedYear}
-          </p>
-        </div>
+  const template = document.querySelector('.modal-template');
 
-        <div class="section-modal-text-container">
-          <h3 class="section-modal-text-container-title">Sex</h3>
-          <p data-sex class="section-modal-text-container-text">${strGender}</p>
-        </div>
+  const clone = template.content.cloneNode(true);
 
-        <div class="section-modal-text-container">
-          <h3 class="section-modal-text-container-title">Members</h3>
-          <p data-members class="section-modal-text-container-text">${intMembers}</p>
-        </div>
+  clone.querySelector('[data-artist-title]').textContent = strArtist;
+  clone.querySelector('[data-sex]').textContent = strGender;
+  clone.querySelector('[data-members]').textContent = intMembers;
+  clone.querySelector('[data-country]').textContent = strCountry;
+  clone.querySelector('[data-biography]').textContent = strBiographyEN;
+  clone.querySelector('[data-years]').textContent =
+    `${intFormedYear}-${valueDiedYear}`;
 
-        <div class="section-modal-text-container">
-          <h3 class="section-modal-text-container-title">Country</h3>
-          <p data-country class="section-modal-text-container-text">${strCountry}</p>
-        </div>
-      </div>
-      <div class="section-modal-text-container">
-        <h3 class="section-modal-text-container-title">Biography</h3>
-        <p class="">${strBiographyEN}</p>
-      </div>
-    </div>
-    <div class="section-modal-wrapper-genres">${artistGenres}</div>
-  </div>
-</div>
+  clone.querySelector('[data-section-modal-img]').src = strArtistThumb;
+  clone.querySelector('[data-section-modal-img]').alt = strArtist;
 
-<h2 class="section-modal-abums-title">Albums</h2>
-  <div data-albums-wrapper class="section-modal-albums-wrapper">${artistAlbumList}</div>
-`;
+  clone.querySelector('[data-genres]').innerHTML = genresMarkup;
+  clone.querySelector('[data-albums-wrapper]').innerHTML = albumsMarkup;
+
+  return clone;
 }

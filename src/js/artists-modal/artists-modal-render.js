@@ -7,17 +7,19 @@ async function getHumanId() {
   return response.data.artists[1]._id;
 }
 
-async function getInformation(id) {
+async function getAlbums(id) {
   const response = await axios.get(
-    `https://sound-wave.b.goit.study/api/artists/${id}`
+    `https://sound-wave.b.goit.study/api/artists/${id}/albums`
   );
+  console.log(response.data);
+
   return response.data;
 }
 
 async function init() {
   try {
     const id = await getHumanId();
-    const info = await getInformation(id);
+    const info = await getAlbums(id);
 
     return info;
   } catch (error) {
@@ -26,10 +28,11 @@ async function init() {
 }
 
 export async function markup() {
-  const infoAboutArtist = await init();
+  const aboutArtist = await init();
   const {
     _id,
     genres,
+    albumsList,
     strArtist,
     strArtistThumb,
     strBiographyEN,
@@ -38,13 +41,48 @@ export async function markup() {
     intMembers,
     intFormedYear,
     intDiedYear,
-  } = infoAboutArtist;
+  } = aboutArtist;
 
   const valueDiedYear = intDiedYear ?? 'present';
+  console.log(albumsList[0].tracks[0].strArtist);
 
   const artistGenres = genres
     .map(el => {
       return `<div data-genres class="section-modal-genres">${el}</div>`;
+    })
+    .join('');
+
+  const artistAlbumList = albumsList
+    .map(el => {
+      return `
+        <div data-albume-container class="section-modal-albume-container">
+          <h3 data-albume-title class="section-modal-albume-container-title">${el.strAlbum}</h3>
+
+          <ul class="section-modal-albume-container-list">
+            <li class="section-modal-albume-container-list-item-selrct">
+              <span class="container-list-item-selrct-span">Track</span>
+              <span class="container-list-item-selrct-span">Time</span>
+              <span class="container-list-item-selrct-span">Link</span>
+            </li>
+
+            ${el.tracks
+              .map(track => {
+                return `
+        <li class="section-modal-albume-container-list-item">
+          <span data-item-nane class="container-list-item-span">${track.strTrack}</span>
+          <span data-item-time class="container-list-item-span">${track.intDuration}</span>
+          <a data-item-icon-linc href="${track.movie}" class="container-list-item-span-link" target="_blank">
+            <svg class="close-svg" width="24" height="24">
+                <use href="/img/icon.svg#icon-Youtube"></use>
+            </svg>
+          </a>
+        </li>
+      `;
+              })
+              .join('')}
+          <ul/>
+    </div>
+    `;
     })
     .join('');
 
@@ -54,7 +92,7 @@ export async function markup() {
   <img
     data-section-modal-img
     src="${strArtistThumb}"
-    alt="artist image"
+    alt="${strArtist}"
     class="section-modal-img"
   />
   <div class="wrapper-desctope-view-description">
@@ -87,7 +125,11 @@ export async function markup() {
         <p class="">${strBiographyEN}</p>
       </div>
     </div>
+    <div class="section-modal-wrapper-genres">${artistGenres}</div>
   </div>
 </div>
+
+<h2 class="section-modal-abums-title">Albums</h2>
+  <div data-albums-wrapper class="section-modal-albums-wrapper">${artistAlbumList}</div>
 `;
 }

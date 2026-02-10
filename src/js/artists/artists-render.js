@@ -1,9 +1,12 @@
 export const artistsList = document.querySelector('.artists-list');
+
 const placeholderArtist = 'https://placehold.co/640x393';
 import iconsPath from '../../img/icon.svg';
 export function renderArtistsList(artists) {
+  const currentCount =
+    artistsList.querySelectorAll('.artists-card-item').length;
   const markup = artists
-    .map(artist => {
+    .map((artist, idx) => {
       const {
         _id: id,
         strArtist: name,
@@ -16,8 +19,12 @@ export function renderArtistsList(artists) {
         .map(genre => `<li class="artists-genres-item">${genre}</li>`)
         .join('');
 
+      const absoluteIndex = currentCount + idx;
+      const loadingAttr = absoluteIndex < 4 ? 'eager' : 'lazy';
+
       return `<li class="artists-card-item">
-          <img class="artists-image" src="${image || placeholderArtist}" alt="${name}" />
+          <img class="artists-image" src="${image || placeholderArtist}" alt="${name}" loading="${loadingAttr}"
+        decoding="async"/>
           <ul class="artists-genres-list">
             ${genresMarkup}
           </ul>

@@ -1,4 +1,3 @@
-
 .div-section-wrapper {
   padding: 64px 0;
   background-color: #060307;
@@ -41,6 +40,8 @@
   height: 177px;
   object-fit: cover;
   margin-bottom: 24px;
+  aspect-ratio: 640 / 393;
+  display: block;
 }
 .artists-genres-item {
   display: flex;
@@ -153,14 +154,11 @@
 }
 
 .artists-learn-more-card-btn:hover {
-    color: #764191;
+  color: #764191;
 }
 .artists-learn-more-card-btn:hover .caret-right-icon {
-
-    fill: #764191;
+  fill: #764191;
 }
-
-
 
 @media screen and (min-width: 768px) {
   .artists-title {
@@ -185,6 +183,8 @@
     height: 432px;
     object-fit: cover;
     margin-bottom: 24px;
+    aspect-ratio: 640 / 393;
+    display: block;
   }
   .artists-genres-item {
     display: flex;
@@ -201,8 +201,7 @@
     justify-content: center;
   }
 
-
-.artists-genres-list {
+  .artists-genres-list {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
@@ -236,7 +235,6 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    
 
     box-shadow:
       0 1px 2px 0 rgba(6, 3, 7, 0.05),
@@ -252,9 +250,9 @@
     color: #ffffff;
     position: relative;
   }
-  .artists-load-more-btn:hover{
+  .artists-load-more-btn:hover {
     opacity: 0.6;
-}
+  }
   .artists-load-more-btn-wrapper {
     display: flex;
     align-items: center;
@@ -284,6 +282,8 @@
     border-radius: 16px;
     width: 640px;
     height: 393px;
+    aspect-ratio: 640 / 393;
+    display: block;
   }
 
   .artists-information {

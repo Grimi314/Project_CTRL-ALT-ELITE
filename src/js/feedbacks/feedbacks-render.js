@@ -1,7 +1,9 @@
 const swiperWrapper = document.querySelector('.swiper-wrapper');
 
 import iconsPathStar from '../../img/icon.svg';
-const feedbackModal = document.querySelector('[data-modal-feedback]');
+const feedbacksLoader = document.querySelector(
+  '.swiper .loader-wrapper .loader'
+);
 
 export function renderFeedbacks(feedbacks = []) {
   const markup = feedbacks.map(feedback => {

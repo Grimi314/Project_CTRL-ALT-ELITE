@@ -1,7 +1,7 @@
 .backdrop {
   position: fixed;
   inset: 0;
- background-color: #060307;
+  background-color: #060307;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,9 +21,10 @@
   height: 100vh;
   background-color: #060307;
   position: relative;
-  overflow-y: auto;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   border-radius: 16px;
+  box-sizing: border-box;
 }
 
 .modal-close {
@@ -90,6 +91,8 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 150%;
+  max-height: 272px;
+  overflow-y: auto;
 }
 
 .section-modal-wrapper-genres {
@@ -211,6 +214,11 @@
   height: 24px;
 }
 
+.modal [data-modal-loader] {
+  display: block;
+  margin: 0 auto;
+}
+
 @media screen and (min-width: 768px) {
   .modal {
     color: #fff;
@@ -249,18 +257,22 @@
     gap: 24px;
   }
 
+  .section-modal-text-biography {
+    max-height: 108px;
+  }
+
   .wrapper-desctope-view {
     margin-bottom: 48px;
   }
 
   .section-modal-albums-wrapper {
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 32px;
   }
 
   .section-modal-albume-container {
-    width: 311px;
+    width: auto;
   }
 
   .section-modal-text-container-text {
@@ -273,6 +285,10 @@
 
   .section-modal-albume-container-list-item > :nth-child(2) {
     width: 107px;
+  }
+
+  .modal [data-modal-loader] {
+    margin: 0 auto;
   }
 }
 
@@ -306,8 +322,16 @@
     /* height: 135px; */
   }
 
+  .section-modal-text-biography {
+    max-height: 135px;
+  }
+
+  .section-modal-albums-wrapper {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .section-modal-albume-container {
-    width: 272px;
+    width: auto;
   }
 
   .section-modal-albume-container-list-item-selrct > :nth-child(2) {

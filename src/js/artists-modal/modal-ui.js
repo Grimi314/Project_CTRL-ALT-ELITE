@@ -2,7 +2,7 @@ import iziToast from 'izitoast';
 
 const backdrop = document.querySelector('.backdrop');
 const modalContent = document.querySelector('.js-modal-content');
-const loader = document.querySelector('.loader');
+const loader = document.querySelector('[data-modal-loader]');
 const closeBtn = document.querySelector('.modal-close');
 
 function onEsc(e) {

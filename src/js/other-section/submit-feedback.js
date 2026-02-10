@@ -44,7 +44,7 @@ const openModal = () => {
   validateForm();
 };
 
-openModal();
+
 
 const closeModal = () => {
   refs.modal.classList.add('is-hidden');

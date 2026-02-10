@@ -1,8 +1,5 @@
 const swiperWrapper = document.querySelector('.swiper-wrapper');
 
-const openFeedbackModalBtn = document.querySelector(
-  '.button-section-feedbacks'
-);
 const feedbackModal = document.querySelector('[data-modal-feedback]');
 
 export function renderFeedbacks(feedbacks = []) {
@@ -75,5 +72,5 @@ function clearFeedbacksWrapper() {
 }
 
 export function openFeedbackModal(event) {
-  feedbackModal.classList.toggle('.is-hidden');
+  feedbackModal.classList.toggle('is-hidden');
 }

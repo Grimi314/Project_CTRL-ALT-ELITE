@@ -11,8 +11,20 @@ export function initSwiper() {
     direction: 'horizontal',
     pagination: {
       el: '.swiper-pagination',
+      type: 'custom',
+      renderCustom(swiper, current, total) {
+        const isFirst = current === 1;
+        const isLast = current === total;
+        const isMiddle = !isFirst && !isLast;
+
+        return `
+        <span class="swiper-pagination-bullet ${isFirst ? 'swiper-pagination-bullet-active' : ''}"></span>
+        <span class="swiper-pagination-bullet ${isMiddle ? 'swiper-pagination-bullet-active' : ''}"></span>
+        <span class="swiper-pagination-bullet ${isLast ? 'swiper-pagination-bullet-active' : ''}"></span>
+      `;
+      },
     },
-    navigation: {
+    Navigation: {
       nextEl: '.swiper-button.next',
       prevEl: '.swiper-button.prev',
     },

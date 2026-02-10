@@ -1,6 +1,6 @@
 import iziToast from 'izitoast';
 import { getDatoFromApi } from '../axios/get-api';
-import { renderFeedbacks, openFeedbackModal } from './feedbacks-render';
+import { renderFeedbacks, openFeedbackModal} from './feedbacks-render';
 import { initSwiper } from './feedbacks-swiper';
 
 const openFeedbackModalBtn = document.querySelector(

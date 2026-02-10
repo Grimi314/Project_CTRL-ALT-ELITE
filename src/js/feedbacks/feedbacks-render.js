@@ -4,6 +4,8 @@ const openFeedbackModalBtn = document.querySelector(
   '.button-section-feedbacks'
 );
 
+const feedbacksLoader= document.querySelector('.swiper .loader-wrapper .loader');
+
 import iconsPathStar from '../../img/icon.svg';
 const feedbackModal = document.querySelector('[data-modal-feedback]');
 
@@ -68,6 +70,7 @@ export function renderFeedbacks(feedbacks = []) {
   });
 
   clearFeedbacksWrapper();
+  hideLoader();
 
   swiperWrapper.insertAdjacentHTML('beforeend', markup.join(''));
 }
@@ -77,5 +80,13 @@ function clearFeedbacksWrapper() {
 }
 
 export function openFeedbackModal(event) {
-  feedbackModal.classList.toggle('is-hidden');
+  feedbackModal.classList.add('is-hidden');
+}
+
+export function showLoader() {
+  feedbacksLoader.style.display = 'block';
+}
+
+export function hideLoader() {
+  feedbacksLoader.style.display = 'none';
 }

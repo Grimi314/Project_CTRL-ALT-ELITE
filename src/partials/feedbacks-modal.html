@@ -1,68 +1,53 @@
-<div class="feedbacks-modal is-hidden" data-modal-feedback>
-  <div class="feedback-container-modal">
-    <button type="button" class="feedbacks-modal-btn">
-      <svg class="modal-icon" width="15" height="15">
-        <use href="/img/icon.svg#icon-close"></use>
-      </svg>
-    </button>
-    <p class="feedbacks-modal-text">Submit feedback</p>
-    <form class="feedbacks-modal-form">
-      <div class="">
-        <label for="user-name" class="feedback-modal-label-input">Name</label>
-        <input
-          class="feedback-modal-input"
-          id="user-name"
-          name="name"
-          required
-          placeholder="Emily"
-          minlength="2"
-          maxlength="16"
-        />
-      </div>
-      <div class="feedback-modal-div">
-        <label class="feedback-modal-label">Message</label>
-        <textarea
-          placeholder="Type your message..."
-          minlength="10"
-          maxlength="512"
-          name="message"
-          required
-          class="feedback-modal-textarea"
-        ></textarea>
-      </div>
-      <div class="feedback-modal-stars">
-        <input type="radio" id="star5" name="rating" required value="5" />
-        <label for="star5" title="5 stars">
-          <svg class="icon-modal-star" width="31" height="29">
-            <use href="/img/icon.svg#icon-star"></use>
+<div class="feedbacks-modal  " data-modal-feedback>
+    <div class="feedback-container-modal">
+        <button type="button" class="feedbacks-modal-btn">
+           <svg class="modal-icon" width="15" height="15">
+            <use href="/img/icon.svg#icon-close"></use>
           </svg>
-        </label>
-        <input type="radio" id="star4" name="rating" value="4" />
-        <label for="star4" title="4 stars">
-          <svg class="icon-modal-star" width="31" height="29">
-            <use href="/img/icon.svg#icon-star"></use>
-          </svg>
-        </label>
-        <input type="radio" id="star3" name="rating" value="3" />
-        <label for="star3" title="3 stars">
-          <svg class="icon-modal-star" width="31" height="29">
-            <use href="/img/icon.svg#icon-star"></use>
-          </svg>
-        </label>
-        <input type="radio" id="star2" name="rating" value="2" />
-        <label for="star2" title="2 stars">
-          <svg class="icon-modal-star" width="31" height="29">
-            <use href="/img/icon.svg#icon-star"></use>
-          </svg>
-        </label>
-        <input type="radio" id="star1" name="rating" value="1" />
-        <label for="star1" title="1 star">
-          <svg class="icon-modal-star" width="31" height="29">
-            <use href="/img/icon.svg#icon-star"></use>
-          </svg>
-        </label>
-      </div>
-      <button type="submit" class="feedback-modal-submit">Submit</button>
-    </form>
-  </div>
-</div>
+        </button>
+        <p class="feedbacks-modal-text">Submit feedback</p> 
+        <form class="feedbacks-modal-form">
+            <div class="">
+                <label for="user-name" class="feedback-modal-label-input">Name</label>
+                <input class="feedback-modal-input" id="user-name" name="name" required placeholder="Emily" minLength="2" maxLength="16" >
+            </div>
+            <div class="feedback-modal-div">
+                <label class="feedback-modal-label">Message</label>
+                <textarea placeholder="Type your message..." minLength="10" maxLength="512" name="message" required class="feedback-modal-textarea"></textarea>
+            </div>
+                <div class="feedback-modal-stars">
+                  <input type="radio" id="star5" name="rating" required value="5" />
+                    <label for="star5" title="5 stars">
+                      <svg class="icon-modal-star" width="31" height="29">
+                        <use href="/img/icon.svg#icon-star"></use>
+                      </svg>
+                    </label>
+                  <input type="radio" id="star4" name="rating" value="4" />
+                  <label for="star4" title="4 stars">
+                    <svg class="icon-modal-star" width="31" height="29">
+                      <use href="/img/icon.svg#icon-star"></use>
+                    </svg>
+                  </label>
+                    <input type="radio" id="star3" name="rating" value="3" />
+                  <label for="star3" title="3 stars">
+                    <svg class="icon-modal-star" width="31" height="29">
+                      <use href="/img/icon.svg#icon-star"></use>
+                    </svg>
+                  </label>
+                    <input type="radio" id="star2" name="rating" value="2" />
+                      <label for="star2" title="2 stars">
+                        <svg class="icon-modal-star" width="31" height="29">
+                          <use href="/img/icon.svg#icon-star"></use>
+                        </svg>
+                      </label>
+                        <input type="radio" id="star1" name="rating" value="1" />
+                          <label for="star1" title="1 star">
+                            <svg class="icon-modal-star" width="31" height="29">
+                              <use href="/img/icon.svg#icon-star"></use>
+                            </svg>
+                          </label>
+                        </div>
+                      <button type="submit" class="feedback-modal-submit">Submit</button>
+                    </form>
+                  </div>
+                </div>

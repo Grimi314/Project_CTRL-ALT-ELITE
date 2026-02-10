@@ -20,11 +20,13 @@ export function renderArtistsList(artists) {
         .join('');
 
       const absoluteIndex = currentCount + idx;
-      const loadingAttr = absoluteIndex < 4 ? 'eager' : 'lazy';
+      const isAboveTheFold = absoluteIndex < 4;
+      const loadingAttr = isAboveTheFold ? 'eager' : 'lazy';
+      const priorityAttr = isAboveTheFold ? 'high' : 'low';
 
       return `<li class="artists-card-item">
           <img class="artists-image" src="${image || placeholderArtist}" alt="${name}" loading="${loadingAttr}"
-        decoding="async"/>
+        decoding="async" fetchpriority="${priorityAttr}"/>
           <ul class="artists-genres-list">
             ${genresMarkup}
           </ul>

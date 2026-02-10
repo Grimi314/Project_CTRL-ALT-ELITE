@@ -36,15 +36,13 @@ const onEscKeyPress = e => {
   if (e.key === 'Escape') closeModal();
 };
 
-const openModal = () => {
+export const openModal = () => {
   refs.modal.classList.remove('is-hidden');
   refs.body.style.overflow = 'hidden';
 
   document.addEventListener('keydown', onEscKeyPress);
   validateForm();
 };
-
-
 
 const closeModal = () => {
   refs.modal.classList.add('is-hidden');

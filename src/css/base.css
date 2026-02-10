@@ -48,3 +48,25 @@ main {
 main:has(.back-link) {
   text-align: center;
 }
+
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* ширина скролу */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* фон скролбару */
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+/* сам повзунок */
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}

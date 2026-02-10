@@ -6,19 +6,30 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  padding: 64px 16px;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 .is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+  display: none;
 }
 
 .modal {
   color: #fff;
   padding: 52px 8px;
   width: 288px;
-  height: 100vh;
+  height: 100%;
   background-color: #060307;
   position: relative;
   overflow-y: scroll;
@@ -220,6 +231,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .backdrop {
+      padding: 64px 32px;
+    }
   .modal {
     color: #fff;
     padding: 64px 24px;
@@ -292,7 +306,10 @@
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media  screen and (min-width: 1440px) {
+  .backdrop {
+      padding: 64px ;
+    }
   .modal {
     width: 1312px;
     padding: 64px 64px;

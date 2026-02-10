@@ -11,6 +11,7 @@ export default defineConfig(({ command }) => {
     },
     root: 'src',
     build: {
+      target: 'es2022', // ✅ ДОДАЙ ОЦЕ
       sourcemap: true,
       rollupOptions: {
         input: glob.sync('./src/*.html'),

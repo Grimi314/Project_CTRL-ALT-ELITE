@@ -27,7 +27,7 @@ export function renderArtistsList(artists) {
           <button class="artists-learn-more-card-btn open-artist-modal" data-artist-id="${id}">
             Learn More
             <svg class="caret-right-icon" width="8" height="16">
-              <use href="/img/icon.svg#icon-icon-button-artists"></use>
+              <use href="/img/icon.svg#icon-button-artists"></use>
             </svg>
           </button>
         </li>`;

@@ -1,4 +1,5 @@
 import { getAlbums } from './artists-modal-api';
+import iconsPathModalArtists from '../../img/icon.svg';   
 
 export async function markup(artistId) {
   const {
@@ -43,7 +44,7 @@ export async function markup(artistId) {
           ? `
           <a data-item-icon-linc href="${track.movie}" class="container-list-item-span-link" target="_blank" rel="noopener noreferrer">
             <svg class="close-svg" width="24" height="24">
-                <use href="/img/icon.svg#icon-Youtube"></use>
+                <use href="${iconsPathModalArtists}#icon-Youtube"></use>
             </svg>
           </a>`
           : '';

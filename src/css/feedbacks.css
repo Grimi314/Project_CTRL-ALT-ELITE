@@ -1,6 +1,5 @@
 @import url(../../node_modules/css-star-rating/css/star-rating.css);
 
-
 .feedbacks-title {
   position: absolute;
   width: 1px;
@@ -66,12 +65,24 @@
 }
 
 .swiper-pagination {
-  margin-bottom: 32px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 26px;
+  margin-top: 26px;
 }
 
 .swiper-pagination-bullet {
-  background-color: #fff;
+  background-color: #fff !important;
+  border-radius: 50%;
+  opacity: 0.2;
+  height: 8px;
+  width: 8px;
+}
 
+.swiper-pagination-bullet-active {
+  opacity: 1;
 }
 
 .button-section-feedbacks {
@@ -103,25 +114,28 @@
   opacity: 0.6;
 }
 
-.feedback-name{
-
-  margin-bottom: 16px;
-}
-
-.star.default svg, .star-container .star svg{
-  fill: #764191 !important;
+.star.default svg,
+.star-container .star svg {
   width: 20px;
   height: 19px;
 }
 
-.star-container{
+.star-container .star .star-empty {
+  fill: #fff !important;
+}
+
+.star-container .star .star-filled {
+  fill: #764191 !important;
+}
+
+.star-container {
   gap: 6px;
 }
 .star.large,
 .rating.large .star.label-value,
 .rating.large .rating.star .star.label-value,
 .rating.large .rating.label-value .star,
-.rating.large .star{
+.rating.large .star {
   width: 20px;
   height: 19px;
 }
@@ -209,6 +223,8 @@
   .button-section-feedbacks {
     width: 177px;
   }
+  .swiper-pagination {
+    margin-top: 85px;
+    margin-bottom: 90px;
+  }
 }
-
-

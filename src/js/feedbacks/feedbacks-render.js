@@ -77,5 +77,5 @@ function clearFeedbacksWrapper() {
 }
 
 export function openFeedbackModal(event) {
-  feedbackModal.classList.toggle('.is-hidden');
+  feedbackModal.classList.toggle('is-hidden');
 }

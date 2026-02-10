@@ -3,6 +3,8 @@ const swiperWrapper = document.querySelector('.swiper-wrapper');
 const openFeedbackModalBtn = document.querySelector(
   '.button-section-feedbacks'
 );
+
+import iconsPathStar from '../../img/icon.svg';
 const feedbackModal = document.querySelector('[data-modal-feedback]');
 
 export function renderFeedbacks(feedbacks = []) {
@@ -16,42 +18,42 @@ export function renderFeedbacks(feedbacks = []) {
               <div class="star-container">
                 <div class="star">
                   <svg class="star-empty">
-                    <use href="/img/icon.svg#icon-icon-star"></use>
+                    <use href="${iconsPathStar}#icon-icon-star"></use>
                   </svg>
                   <svg class="star-filled">
-                    <use href="/img/icon.svg#icon-icon-star"></use>
+                    <use href="${iconsPathStar}#icon-icon-star"></use>
                   </svg>
                 </div>
                 <div class="star">
                   <svg class="star-empty">
-                    <use href="/img/icon.svg#icon-icon-star"></use>
+                    <use href="${iconsPathStar}#icon-icon-star"></use>
                   </svg>
                   <svg class="star-filled">
-                    <use href="/img/icon.svg#icon-icon-star"></use>
+                    <use href="${iconsPathStar}#icon-icon-star"></use>
                   </svg>
                 </div>
                 <div class="star">
                   <svg class="star-empty">
-                    <use href="/img/icon.svg#icon-icon-star"></use>
+                    <use href="${iconsPathStar}#icon-icon-star"></use>
                   </svg>
                   <svg class="star-filled">
-                    <use href="/img/icon.svg#icon-icon-star"></use>
+                    <use href="${iconsPathStar}#icon-icon-star"></use>
                   </svg>
                 </div>
                 <div class="star">
                   <svg class="star-empty">
-                    <use href="/img/icon.svg#icon-icon-star"></use>
+                    <use href="${iconsPathStar}#icon-icon-star"></use>
                   </svg>
                   <svg class="star-filled">
-                    <use href="/img/icon.svg#icon-icon-star"></use>
+                    <use href="${iconsPathStar}#icon-icon-star"></use>
                   </svg>
                 </div>
                 <div class="star">
                   <svg class="star-empty">
-                    <use href="/img/icon.svg#icon-icon-star"></use>
+                    <use href="${iconsPathStar}#icon-icon-star"></use>
                   </svg>
                   <svg class="star-filled">
-                    <use href="/img/icon.svg#icon-icon-star"></use>
+                    <use href="${iconsPathStar}#icon-icon-star"></use>
                   </svg>
                 </div>
               </div>

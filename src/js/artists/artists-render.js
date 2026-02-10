@@ -1,5 +1,6 @@
 export const artistsList = document.querySelector('.artists-list');
 const placeholderArtist = 'https://placehold.co/640x393';
+import iconsPath from '../../img/icon.svg';
 export function renderArtistsList(artists) {
   const markup = artists
     .map(artist => {
@@ -27,7 +28,7 @@ export function renderArtistsList(artists) {
           <button class="artists-learn-more-card-btn open-artist-modal" data-artist-id="${id}">
             Learn More
             <svg class="caret-right-icon" width="8" height="16">
-              <use href="/img/icon.svg#icon-button-artists"></use>
+              <use href="${iconsPath}#icon-button-artists"></use>
             </svg>
           </button>
         </li>`;

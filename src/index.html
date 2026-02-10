@@ -8,27 +8,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Epilogue:wght@700&display=swap"
-      rel="stylesheet"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
-    <link
-      rel="preload"
-      as="image"
-      href="/img/hero-mobile.webp"
-      media="(max-width: 767px)"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="/img/hero-tablet.webp"
-      media="(min-width: 768px) and (max-width: 1439px)"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="/img/hero-desktop.webp"
-      media="(min-width: 1440px)"
-    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Epilogue:wght@700&display=swap"
+      />
+    </noscript>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>

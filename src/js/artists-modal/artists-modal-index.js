@@ -1,6 +1,6 @@
 import { markup } from './artists-modal-render';
 import { func, listener } from './modal-ui';
-//import { getSelectedArtistId } from '../artists/artist-helpers.js';
+import { getSelectedArtistId } from '../artists/artists-helpers.js';
 
 export async function showArtist(artistId) {
   try {
@@ -16,6 +16,6 @@ export async function showArtist(artistId) {
   }
 }
 
-showArtist('65adae06af9f6d155db4b23a');
+// showArtist('65adae06af9f6d155db4b23a');
 
 // getSelectedArtistId()

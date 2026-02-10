@@ -140,6 +140,12 @@
   height: 19px;
 }
 
+.swiper-pagination-bullet{
+  background-color: #fff !important;
+  
+}
+
+
 @media (min-width: 768px) {
   .feedbacks-text {
     width: 518px;

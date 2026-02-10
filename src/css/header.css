@@ -1,12 +1,22 @@
 a {
   text-decoration: none;
 }
+
+
+header{
+  position: fixed;
+  right: auto;
+  background-color: #060307;
+  width: 100%;
+}
 /* header */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 6.5px 12px 6.5px 20px;
+
+  
 }
 
 .header-logo-link {

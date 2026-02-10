@@ -1,5 +1,5 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const refs = {
   closeModalBtn: document.querySelector('.feedbacks-modal-btn'),
@@ -40,14 +40,16 @@ const openModal = () => {
   refs.modal.classList.remove('is-hidden');
   refs.body.style.overflow = 'hidden';
 
-  window.addEventListener('keydown', onEscKeyPress);
+  document.addEventListener('keydown', onEscKeyPress);
   validateForm();
 };
+
+openModal();
 
 const closeModal = () => {
   refs.modal.classList.add('is-hidden');
   refs.body.style.overflow = '';
-  window.removeEventListener('keydown', onEscKeyPress);
+  document.removeEventListener('keydown', onEscKeyPress);
 
   refs.form.reset();
   validateForm();

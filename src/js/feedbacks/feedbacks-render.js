@@ -5,8 +5,6 @@ const openFeedbackModalBtn = document.querySelector(
 );
 const feedbackModal = document.querySelector('[data-modal-feedback]');
 
-openFeedbackModalBtn.addEventListener('click', openFeedbackModal);
-
 export function renderFeedbacks(feedbacks = []) {
   const markup = feedbacks.map(feedback => {
     const { descr, name, rating } = feedback;
@@ -76,6 +74,6 @@ function clearFeedbacksWrapper() {
   swiperWrapper.innerHTML = '';
 }
 
-function openFeedbackModal(event) {
-  feedbackModal.classList.add('.is-hidden');
+export function openFeedbackModal(event) {
+  feedbackModal.classList.toggle('.is-hidden');
 }

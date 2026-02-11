@@ -48,7 +48,6 @@ const closeModal = () => {
   refs.modal.classList.add('is-hidden');
   refs.body.style.overflow = '';
   document.removeEventListener('keydown', onEscKeyPress);
-
   refs.form.reset();
   validateForm();
 };

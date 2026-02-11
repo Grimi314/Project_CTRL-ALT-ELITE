@@ -24,7 +24,7 @@ function closeModal() {
   closeBtn.removeEventListener('click', closeModal);
   document.removeEventListener('keydown', onEsc);
   backdrop.removeEventListener('click', onBackdropClick);
-
+  document.body.classList.remove('no-scroll');
   func.clearModalContent();
 }
 

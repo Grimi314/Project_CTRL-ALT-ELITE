@@ -14,4 +14,5 @@ export function getSelectedArtistId() {
 
 function openModalLayout() {
   modalLayout.classList.remove('is-hidden');
+  document.body.classList.add('no-scroll');
 }

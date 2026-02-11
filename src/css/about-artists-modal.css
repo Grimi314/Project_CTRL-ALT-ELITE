@@ -9,9 +9,28 @@
   padding: 64px 16px;
 }
 
-.no-scroll {
+/* .no-scroll {
+  overflow-y: hidden;
+
+  body.no-scroll {
+      overflow: hidden;
+    }
+  
+    body.no-scroll::-webkit-scrollbar {
+      width: 0px;
+    }
+} */
+
+html.no-scroll,
+body.no-scroll {
   overflow: hidden;
+  height: 100%;
 }
+
+body.no-scroll::-webkit-scrollbar {
+  width: 0px;
+}
+
 
 html,
 body {

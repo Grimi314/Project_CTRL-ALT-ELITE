@@ -46,22 +46,22 @@ export function renderArtistsList(artists) {
 
   artistsList.insertAdjacentHTML('beforeend', markup);
 
-  setTimeout(() => {
-    artistsList
-      .querySelectorAll('.artists-information')
-      .forEach(previewBiography);
-  }, 0);
-}
-function previewBiography(element) {
-  const text = element.dataset.fulltext || element.textContent.trim();
-  element.dataset.fulltext = text;
-  element.textContent = text;
-  if (element.scrollHeight <= element.clientHeight) {
-    return;
-  }
-  const words = text.split(' ');
-  while (words.length && element.scrollHeight > element.clientHeight) {
-    words.pop();
-    element.textContent = words.join(' ') + '...';
-  }
+  //   setTimeout(() => {
+  //     artistsList
+  //       .querySelectorAll('.artists-information')
+  //       .forEach(previewBiography);
+  //   }, 0);
+  // }
+  // function previewBiography(element) {
+  //   const text = element.dataset.fulltext || element.textContent.trim();
+  //   element.dataset.fulltext = text;
+  //   element.textContent = text;
+  //   if (element.scrollHeight <= element.clientHeight) {
+  //     return;
+  //   }
+  //   const words = text.split(' ');
+  //   while (words.length && element.scrollHeight > element.clientHeight) {
+  //     words.pop();
+  //     element.textContent = words.join(' ') + '...';
+  //   }
 }

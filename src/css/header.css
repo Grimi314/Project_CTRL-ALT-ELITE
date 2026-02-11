@@ -8,6 +8,7 @@ header{
   right: auto;
   background-color: #060307;
   width: 100%;
+  z-index: 1000;
 }
 /* header */
 .header-container {
